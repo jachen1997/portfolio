@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Vast+Shadow" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script type="text/javascript" src="https://dl.dropboxusercontent.com/s/p4olpo0afexmd29/Diamond-Layout.js"></script>
+
+    <script type="text/javascript" src="https://static.tumblr.com/g703xso/HfSovrwcy/leandmodal.js"></script>
+    <title>Jasmine Chen</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                text-decoration: none;
+                -moz-transition: all .5s ease-in-out;
+                -webkit-transition: all .5s ease-in-out;
+                -o-transition: all .5s ease-in-out;
+                transition: all .5s ease-in-out;
+            }
+
+            body {
+                background-color: #ffffff;
+                font-family: 'roboto';
+                font-size: 24px;
+            }
+
+            #header {
+                height: 100vh;
+                background: url("header5.png") no-repeat center center fixed; 
+                background-color: #000000;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+            .intro-box {
+                position: absolute;
+                width: 100%;
+                height: 200px;
+                top: 50%;
+                margin-top: -100px;
+                text-align: center;
+                display: inline-block;
+                padding: 15px;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+
+            span.intro-title {
+                position: relative;
+                font-size: 60px;
+                font-family: 'roboto';
+                color: #ffffff;  
+                text-align: center;
+            }
+
+            span.intro-text {
+                position: relative;
+                font-size: 15px;
+                font-family: 'roboto';
+                color: #ffffff;  
+            }
+
+            p.intro-text {
+                height: 100%;
+                overflow: auto;
+            }
+
+            .intro-text a{
+                color: #2ca388; 
+            }
+
+            .intro-text a:hover{
+                letter-spacing: 1px;
+            }
+
+            /*Header Links*/
+            .arrow_box_left {
+                position: relative;
+                background: #ffffff; 
+                color: #52cbaa; 
+                border: 2px solid #52cbaa; 
+            }
+
+            .arrow_box_left:after,
+            .arrow_box_left:before {
+                left: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            .arrow_box_left:after {
+                border-color: rgba(255, 255, 255, 0);
+                border-left-color: #ffffff; 
+                border-width: 3px;
+                margin-top: -3px;
+            }
+
+            .arrow_box_left:before {
+                border-color: rgba(58, 213, 224, 0);
+                border-left-color: #52cbaa; 
+                border-width: 6px;
+                margin-top: -6px;
+            }
+
+            .arrow_box_right {
+                position: relative;
+                background: #ffffff; 
+                color: #52cbaa; 
+                border: 2px solid #52cbaa; 
+            }
+
+            .arrow_box_right:after,
+            .arrow_box_right:before {
+                right: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            .arrow_box_right:after {
+                border-color: rgba(255, 255, 255, 0);
+                border-right-color: #fff; 
+                border-width: 3px;
+                margin-top: -3px;
+            }
+
+            .arrow_box_right:before {
+                border-color: rgba(58, 213, 224, 0);
+                border-right-color: #52cbaa; 
+                border-width: 6px;
+                margin-top: -6px;
+            }
+
+            .linkbox {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+            }
+
+            .left-box {
+                left: -34px;
+            }
+
+            .right-box {
+                right: -32px;
+            }
+
+            .linkbox a {
+                position: relative;
+                font-size: 16px;
+                padding: 5px;
+                border-radius: 25px;
+                height: 15px;
+                width: 15px;
+                display: block;
+                margin: 10px 0;
+                background: white; 
+                color: #52cbaa; 
+                border: 2px solid #52cbaa; 
+            }
+
+            .linkbox a:hover{
+                background: #52cbaa; 
+                color: white; /
+                border: 2px solid white 
+            }
+
+            .linkbox a:hover>.nav-left {
+                opacity: 1;
+                right: 34px;
+            }
+
+            .linkbox a:hover>.nav-right {
+                opacity: 1;
+                left: 34px;
+            }
+
+            span.hov-nav {
+                position: absolute;
+                top: 1px;
+                font-size: 12px;
+                padding: 2px 10px;
+                width: 80px;
+                text-align: center;
+                -moz-transition: all .5s ease-in-out;
+                -webkit-transition: all .5s ease-in-out;
+                -o-transition: all .5s ease-in-out;
+                transition: all .5s ease-in-out;
+                opacity: 0;
+            }
+
+            span.nav-left {
+                right: 25px;
+            }
+
+            span.nav-right {
+                left: 25px;
+            }
+
+            .fa {
+                position: relative;
+            }
+
+            .fa-home {
+                top: -1px;
+            }
+
+            .fa-envelope {
+                left: 1px;
+                top: 1px;
+                font-size: 13px;
+            }
+
+            .fa-pencil-square-o {
+                font-size: 15px;
+                left: 1px;
+            }
+
+            .fa-share {
+                font-size: 14px;
+                top: 1px;
+                left: 1px;
+            }
+
+            .fa-cog {
+                font-size: 17px;
+                top: -1px;
+                left: 0px;
+            }
+
+            .fa-leaf {
+                top: -1px;
+                right: 1px;
+            }
+
+            .diamonds {
+                text-align: center;
+                overflow: visible;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            .diamond-row-wrap {
+                text-align: center;
+                position: relative;
+                float: left;
+                clear: both;
+            }
+
+            .diamond-row-upper,
+            .diamond-row-lower {
+                overflow: visible;
+                clear: both;
+                width: 100%;
+            }
+
+            .diamond-row-lower {
+                position: absolute;
+                bottom: 0;
+            }
+
+            .diamond-row-lower .diamond-box {
+                margin-left: 64.644660941%;
+                /* 0.5 + 1 / sqrt(2) / 2 */
+                margin-top: 64.644660941%;
+            }
+
+            .diamond-box-wrap {
+                float: left;
+            }
+
+            .diamond-box {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+                overflow: hidden;
+                position: relative;
+                z-index: 1;
+                width: 70.710678118%;
+                height: 70.710678118%;
+                margin: 14.644660941%;
+                border: 1px solid transparent;
+            }
+
+            .diamond-box-inner {
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                -webkit-transform-origin: center center;
+                -moz-transform-origin: center center;
+                -ms-transform-origin: center center;
+                transform-origin: center center;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+                width: 100%;
+                height: 165%;
+                margin: -20.7106781185% 0 0 -20.7106781185%;
+            }
+
+            #content2 {
+                height: 400px;
+                position: relative;
+                padding: 20px 0px;
+                box-sizing: border-box;
+                text-align:left;
+                margin-right: 80px;
+                margin-left: 150px;
+                margin-bottom: 50px;
+                margin-top: 25px;
+                min-width: 1258px;
+            }
+
+            #content3 {
+                height: 400px;
+                position: relative;
+                box-sizing: border-box;
+                text-align:left;
+                margin-right: 80px;
+                margin-left: 350px;
+                margin-bottom: 25px;
+                min-width: 1058px;
+            }
+
+            #label {
+                text-align: center;
+                font-size: 60px;
+                font-family: 'roboto';
+                position: relative;
+                display: inline-block;
+            }
+
+            #img2 {
+                display: inline-block;
+                height: 400px;
+                width:400px;
+                left: 20px;
+                float: left;
+
+            }
+
+            #content {
+                height: 50vh;
+                width: 80%;
+                position: relative;
+                padding: 20px 0px;
+                box-sizing: border-box;
+                text-align:center;
+                margin: auto;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                min-width: 1300px;
+
+            }
+
+            .resize {
+                position: relative;
+                left: 0;
+                top: 0;
+                height: 300px;
+                display: inline-block;
+            }
+
+            span.chara-name {
+                display: block;
+                position: relative;
+                top: 165px;
+                left: -5px;
+                width: 300px;
+                padding: 5px;
+                z-index: 10;
+                font-size: 15px;
+                font-family: 'roboto';
+                opacity: 0;
+                -moz-transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
+                background: rgba(0, 0, 0, 0.35); 
+                color: white; 
+            }
+
+
+            #content a:hover>.chara-name {
+                opacity: 1;
+
+            }
+
+            #lean_overlay {
+                position: fixed;
+                z-index: 100;
+                top: 0px;
+                left: 0px;
+                height: 100%;
+                width: 100%;
+                background: #000; 
+                display: none;
+            }
+
+            .modal {
+                position: relative;
+                width: 900px;
+                height: 510px;
+                display: none;
+                top: 0px;
+
+            }
+
+            .chara_name {
+                position: relative;
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                top: 2vh;
+            }
+
+            .name_bg {
+                position: relative;
+                display: inline-block;
+                margin: 0 auto;
+                padding: 5px 15px;
+                font-size: 50px;
+                color: inherit; 
+                font-family: 'roboto';
+                top: 5vh;
+            }
+
+            .triangle-bottomleft-a, .triangle-topleft-a, .triangle-topright-a, .triangle-bottomright-a{
+                border-top-color: #43d1cc !important;
+                border-bottom-color: #43d1cc !important;
+            }
+
+            .triangle-topright-a {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 20px solid;
+                border-left: 25px solid transparent;
+                left: -26px;
+                top: 7px;
+                z-index: 1;
+            }
+
+            .triangle-bottomright-a {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-bottom: 20px solid;
+                border-left: 25px solid transparent;
+                left: -26px;
+                bottom: -4px;
+            }
+
+            .triangle-topleft-a {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 20px solid;
+                border-right: 25px solid transparent;
+                right: -26px;
+                top: 7px;
+                z-index: 1;
+            }
+
+            .triangle-bottomleft-a {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-bottom: 20px solid;
+                border-right: 25px solid transparent;
+                right: -26px;
+                bottom: -4px;
+            }
+
+            .chara_pic {
+                position: absolute;
+                top: 60px;
+                bottom: 0;
+                left: -100px;
+                width: 250px;
+            }
+
+            .chara_pic img {
+                max-height: 560px;
+                max-width: 350px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
+                -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+                -moz-box-shadow: 0 0px 8px rgba(255, 255, 255, 0.7);
+            }
+
+            .resize_p {
+                position: absolute;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+            }
+
+            .chara_basic {
+                position: absolute;
+                height: 100px;
+                line-height: 50px;
+                right: 0;
+                left: 260px;
+                top: 50px;
+                border-radius: 5px;
+            }
+
+            span.chara_data {
+                display: inline-block;
+                position: relative;
+                margin-left: 5px;
+            }
+
+            .chara_data b {
+                position: relative;
+                display: inline-block;
+                font-size: 20px;
+                z-index: 5;
+                height: 25px;
+                width: 25px;
+                text-align: center;
+                top: 0px;
+                border-radius: 3px;
+                background: #43d1cc; 
+                color: white; 
+            }
+
+            .chara_data p {
+                display: inline-block;
+                padding: 5px 10px 5px 10px;
+                position: relative;
+                left: -10px;
+                height: 25px;
+                line-height: 25px;
+                border-radius: 3px;
+                width: 90px;
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.36);
+                -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
+                -moz-box-shadow: 0 0px 8px rgba(255, 255, 255, 0.36);
+                color: #212727; 
+                background: #ffffff; 
+                font-size: 10px;
+            }
+
+            b.bday {
+                top: -3px;
+            }
+
+            b.sex {
+                top: -1px
+            }
+
+            .chara_data .fa {
+                position: relative;
+            }
+
+            .fa-map-marker {
+                top: 2px;
+            }
+
+            .fa-birthday-cake {
+                font-size: 16px;
+                top: 3px;
+            }
+
+            .fa-venus-mars {
+                font-size: 19px;
+                top: 3px;
+            }
+
+            .fa-star {
+                top: 3px;
+                font-size: 19px;
+            }
+
+            .fa-user-circle {
+                top: 2px;
+            }
+
+            .fa-dot-circle-o {
+                top: 2px;
+            }
+
+            .chara_box {
+                position: relative;
+                right: 0;
+                bottom: 0;
+                width: 700px;
+                border-radius: 5px;
+                text-align: center;
+                color: white;  
+            }
+
+            .a_bar {
+                position: relative;
+                width: 150px;
+                height: 10px;
+                border-radius: 5px;
+                overflow: hidden;
+                margin-top: 5px;
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.36);
+                -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
+                -moz-box-shadow: 0 0px 8px rgba(255, 255, 255, 0.36);
+            }
+
+            span.lvl_dt {
+                position: relative;
+                display: inline-block;
+                width: 30px;
+                height: 100%;
+                z-index: 10000;
+            }
+
+            span.lvl1 {
+                background: #ffffff; 
+            }
+
+            span.lvl2 {
+                background: #acf7ec; 
+            }
+
+            span.lvl3 {
+                background: #7fefdd; 
+            }
+
+            span.lvl4 {
+                background: #3ddec5; 
+            }
+
+            span.lvl5 {
+                background: #19c6ab; 
+            }
+
+            .level_bar {
+                position: absolute;
+                height: 100%;
+                z-index: 99999;
+                right: 0;
+                background: #7e7e7e; 
+            }
+
+            .lvl-1 {width: 80%;}
+            .lvl-2 {width: 60%;}
+            .lvl-3 {width: 40%;}
+            .lvl-4 {width: 20%;}
+            .lvl-5 {width: 0%;}
+
+            .bar_box {
+                display: inline-block;
+                margin: 10px 30px;
+                position: relative;
+                text-align: left;
+            }
+
+            span.bar_name {
+                font-size: 12px;
+            }
+
+            span.bar_stt {
+                position: absolute;
+                right: 5px;
+                font-size: 10px;
+            }
+
+            .desc_box {
+                display: block;
+                max-height: 150px;
+                padding: 10px;
+                box-sizing: border-box;
+                overflow-y: auto;
+                margin: 5px 0;
+                text-align: left;
+                padding-top: 50px;
+
+            }
+
+            .desc_box a{
+                color: #dedede; 
+            }
+
+            span.tag {
+                display: inline-block;
+                margin: 5px 0;
+            }
+
+            span.tag b {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                font-size: 14px;
+                border-radius: 20px;
+                z-index: 1;
+                top: -2px;
+                background: #31d1b9;
+                color: white;
+            }
+
+            span.tag a {
+                display: inline-block;
+                position: relative;
+                padding: 8px 10px;
+                left: -10px;
+                width: 90px;
+                border-radius: 4px;
+                font-size: 10px;
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.36);
+                -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.36);
+                -moz-box-shadow: 0 0px 8px rgba(255, 255, 255, 0.36);
+                background: white;
+                color: #0a0a0a; 
+            }
+
+            span.tag a:hover {
+                letter-spacing: 2px;
+            }
+
+            .fa-tag {
+                position: relative;
+                top: 3px;
+                left: 0px;
+            }
+
+            .flex-wrapper {
+                display: flex;
+                height: 50vh;
+                width: 50%;
+                position: relative;
+                padding: 20px 0px;
+                box-sizing: border-box;
+                text-align:center;
+                margin: auto;
+
+            }
+
+            .single-chart {
+                width: 33%;
+                justify-content: space-around ;
+            }
+
+            .circular-chart {
+                display: block;
+                margin: 10px auto;
+                max-width: 50%;
+                max-height: 250px;
+            }
+
+            .circle-bg {
+                fill: none;
+                stroke: #eee;
+                stroke-width: 3.8;
+            }
+
+            .circle {
+                fill: none;
+                stroke-width: 2.8;
+                stroke-linecap: round;
+                animation: progress 1s ease-out forwards;
+            }
+
+            @keyframes progress {
+                0% {
+                stroke-dasharray: 0 100;
+                }
+            }
+
+            .circular-chart.orange .circle {
+                stroke: #ff9f00;
+            }
+
+            .circular-chart.green .circle {
+                stroke: #4CC790;
+            }
+
+            .circular-chart.blue .circle {
+                stroke: #3c9ee5;
+            }
+
+            .percentage {
+                fill: #666;
+                font-family: sans-serif;
+                font-size: 0.5em;
+                text-anchor: middle;
+            }
+
+            #container {
+                height: 100%;
+                width: 900px;
+                margin-top: 10vh;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #242d22;
+                box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.36);
+            }
+
+            .combb {
+                position: relative;
+                width: 135px;
+                height: 78px;
+                background-color: #fff;
+                margin: 39px 0;
+            }
+
+            .combb:before, .combb:after {
+                content: "";
+                width: 0;
+                border-left: 67.5px solid transparent;
+                border-right: 67.5px solid transparent;
+                position: absolute;
+            }
+
+            .combb:before {
+                bottom: 100%;
+                border-bottom: 39px solid #fff;
+            }
+
+            .combb:after {
+                top: 100%;
+                width: 0;
+                border-top: 39px solid #fff;
+            }
+
+            #comb1border {
+                margin-top: -2px;
+                margin-left: -67.5px;
+                position: fixed;
+                z-index: 1;
+            }
+
+            #comb2border {
+                margin-top: -2px;
+                margin-left: 61.5px;
+                position: fixed;
+                z-index: 1;
+            }
+
+            #comb3border {
+                margin-top: 111px;
+                margin-left: -132.5px;
+                position: fixed;
+                z-index: 1;
+            }
+
+            #comb4border {
+                margin-top: 111px;
+                margin-left: -2.5px;
+                position: fixed;
+                z-index: 1;
+            }
+
+            #comb5border {
+                margin-top: 226px;
+                margin-left: -67.5px;
+                position: fixed;
+                z-index: 1;
+            }
+
+            #comb1wrap {
+                margin-top: -6px;
+                margin-left: -15px;
+                position: fixed;
+                z-index: 2;
+            }
+
+            #comb2wrap {
+                margin-top: -6px;
+                margin-left: -15px;
+                position: fixed;
+                z-index: 2;
+            }
+
+            #comb3wrap {
+                margin-top: -6px;
+                margin-left: -15px;
+                position: fixed;
+                z-index: 2;
+            }
+
+            #comb4wrap {
+                margin-top: -6px;
+                margin-left: -15px;
+                position: fixed;
+                z-index: 2;
+            }
+
+            #comb5wrap {
+                margin-top: -6px;
+                margin-left: -15px;
+                position: fixed;
+                z-index: 2;
+            }
+
+            .comb {
+                visibility: hidden;
+                overflow: hidden;
+                transform: rotate(120deg);
+                -webkit-transform: rotate(120deg);
+                -moz-transform: rotate(120deg);
+                -ms-transform: rotate(120deg);
+                -o-transform: rotate(120deg);
+            }
+
+            .comb-in0 {
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comb-in1 {
+                visibility: visible;
+                background-repeat: no-repeat;
+                background-attachment: top;
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comb-in2 {
+                visibility: visible;
+                background-repeat: no-repeat;
+                background-attachment: top;
+                background-image: url('');
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comb-in3 {
+                visibility: visible;
+                background-repeat: no-repeat;
+                background-attachment: top;
+                background-image: url('');
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comb-in4 {
+                visibility: visible;
+                background-repeat: no-repeat;
+                background-attachment: top;
+                background-image: url('');
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comb-in5 {
+                visibility: visible;
+                background-repeat: no-repeat;
+                background-attachment: top;
+                background-image: url('');
+                height: 100%;
+                width: 100%;
+                transform: rotate(-60deg);
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+            }
+
+            .comba {
+                height: 250px;
+                width: 125px;
+                margin: -80px 0 0 20px;
+            }
+
+            #topbar {
+                width: 900px;
+                height: 77px;
+                border-bottom: 2px solid #fff;
+                padding: 10px;
+                position: fixed;
+                z-index: 0;
+            }
+
+            h1 {
+                width: 625px;
+                color: #fff;
+                font-size: 36px;
+                font-weight: 500;
+                font-variant: small-caps;
+                letter-spacing: 2px;
+                text-align: right;
+                text-transform: lowercase;
+                margin-top: 16px;
+                margin-left: 198px;
+                position: fixed;
+                z-index: 2;
+                font-family: 'roboto';
+            }
+
+            h2 {
+                width: 477px;
+                color: #fff;
+                font-family: 'Nunito Sans';
+                font-size: 9px;
+                font-weight: 300;
+                letter-spacing: 1px;
+                text-align: right;
+                text-transform: lowercase;
+                text-shadow: 1px -1px 2px #D7D9D7, -1px 1px 2px #D7D9D7;
+                margin-top: 31px;
+                margin-left: 198px;
+                position: fixed;
+                z-index: 2;
+
+            }
+
+            h2 a, a:active, a:visited {
+                color: #fff;
+            }
+
+            h2 a:hover {
+                font-style: italic;
+            }
+
+            #description {
+                height: 600px;
+                width: 625px;
+                color: #fff;
+                font-family: 'roboto';
+                font-size: 15px;
+                word-wrap: normal;
+                white-space: none;
+                text-align: left;
+                padding: 20px;
+                margin-top: 90px;
+                margin-left: 185px;
+                overflow-y: auto;
+                position: fixed;
+                z-index: 0;
+            }
+
+            #description b, strong {
+                color: #97b0c5;
+                text-transform: uppercase;
+            }
+
+            #description i, em {
+                font-weight: 600;
+            }
+
+            #description a, a:active, a:visited {
+                color: #fff;
+            }
+
+            #description a:hover {
+                font-style: italic;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .timeline {
+              position: relative;
+              max-width: 1200px;
+              margin: 0 auto;
+              margin-top: 10px;
+              min-width: 1400px;
+            }
+
+            .timeline::after {
+              content: '';
+              position: absolute;
+              width: 6px;
+              background-color: white;
+              top: 0;
+              bottom: 0;
+              left: 50%;
+              margin-left: -3px;
+            }
+
+            .container2 {
+              padding: 10px 40px;
+              position: relative;
+              background-color: inherit;
+              width: 50%;
+            }
+
+            .container2::after {
+              content: '';
+              position: absolute;
+              width: 15px;
+              height: 15px;
+              right: -11px;
+              background-color: white;
+              border: 4px solid #6bb05e;
+              top: 15px;
+              border-radius: 50%;
+              z-index: 1;
+            }
+
+            .left {
+              left: 0;
+            }
+
+            .right {
+              left: 50%;
+            }
+
+            .left::before {
+              content: " ";
+              height: 0;
+              position: absolute;
+              top: 22px;
+              width: 0;
+              z-index: 1;
+              right: 30px;
+              border: medium solid white;
+              border-width: 10px 0 10px 10px;
+              border-color: transparent transparent transparent white;
+            }
+
+            .right::before {
+              content: " ";
+              height: 0;
+              position: absolute;
+              top: 22px;
+              width: 0;
+              z-index: 1;
+              left: 30px;
+              border: medium solid white;
+              border-width: 10px 10px 10px 0;
+              border-color: transparent white transparent transparent;
+            }
+
+            .right::after {
+              left: -12px;
+            }
+
+            .content4 {
+              padding: 20px 30px;
+              background-color: white;
+              position: relative;
+              border-radius: 6px;
+            }
+
+            @media screen and (max-width: 600px) {
+              .timeline::after {
+                left: 31px;
+              }
+
+              .container2 {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+              }
+
+              .container2::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+              }
+
+              .left::after, .right::after {
+                left: 15px;
+              }
+
+              .right {
+                left: 0%;
+              }
+            }
+
+
+        </style>
+    </head>
+    
+    <body>
+        <div id="header">
+            <div class="intro-box">
+                <span class="intro-title" style="font-family:roboto;font-weight:bold">JASMINE CHEN</span><br>
+                <span class="intro-text" style="font-family:roboto">Cornell University 2019, Bachelor of Science</span><br>
+            </div>
+        </div>
+
+        <div id="content2">
+            <img src="carnivore.png" id="img2">
+            <br><br><br><br>
+            <p style="font-family:roboto;font-weight:700;color:#6bb05e">Hello!</p>
+            <p style="font-size: 15px;width:92%">My name is Jasmine and I'm currently a senior at Cornell University majoring in Computer Science and minoring in Game Design and Business. I'm interested in <b style="color:#6bb05e">Software Engineering</b>, <b style="color:#6bb05e">Web Development</b> and <b style="color:#6bb05e">Game Design</b>. In my free time, I also enjoy Graphic Design, gaming and leading Cornell's chess club.</p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;">Python</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">HTML</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle2.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">PHP</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle2.png"></p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;">Java</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">CSS</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle2.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">SQL</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"></p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;">C</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle2.png"> <img src="circle2.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">Javascript</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle2.png"></p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">Photoshop</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;"><img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"> <img src="circle.png"></p>
+        </div>
+
+
+        <div style="background-color: #fafafa; height:900px;width:100%;display:inline-block">
+          <p style="text-align:center; font-size:30px;padding-top: 40px;font-family:roboto;font-weight:700;color:#6bb05e;min-width:1400px">EXPERIENCE</p>
+            <div class="timeline">
+                <div class="container2 left">
+                    <div class="content4" style="text-align:right;">
+                        <p style="font-size:15px;font-family:roboto;font-weight:bold;color:#6bb05e"><u>Software Engineering/Game Design</u></p>
+                        <p style="font-size:11px;font-family:roboto;padding-top:5px;"><b style="color:#6bb05e">Trino</b> (Spring 2018) - Project Lead/Programmer/Level Designer</p>
+                        <p style="font-size:11px;font-family:roboto"><b style="color:#6bb05e">Silent Voices</b> (2018) - Project Lead/Programmer/Writer</p>
+                        <p style="font-size:11px;font-family:roboto"><b style="color:#6bb05e">JEM Escape</b> (Fall 2017) - Programmer/UX Designer</p>
+                    </div>
+                </div>
+
+                <div class="container2 right">
+                    <div class="content4">
+                        <p style="font-size:15px;font-family:roboto;font-weight:bold;color:#6bb05e"><u>Web Development/Design</u></p>
+                        <p style="font-size:11px;font-family:roboto;padding-top:5px;"><b style="color:#6bb05e">California Wildfires</b> (Spring 2018) - Programmer/Graphic Designer</p>
+                        <p style="font-size:11px;font-family:roboto"><b style="color:#6bb05e">Café Pacific</b> (Spring 2017) - Fullstack Programmer</p>
+                        <p style="font-size:11px;font-family:roboto"><b style="color:#6bb05e">thefempages</b> (Summer 2018) - Fullstack Programmer</p>
+                        <p style="font-size:11px;font-family:roboto"><b style="color:#6bb05e">G&F Concrete Cutting</b> (Summer 2017) - Fullstack Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content">
+                <a href="#ONE" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">Trino</span>
+                    <img src="trino13.png">
+                </a>
+                <a href="#TWO" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">Silent Voices</span>
+                    <img src="sv2.png" class="resize" style="top:0px;left:0px">
+                </a>
+                <a href="#THREE" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">California Wildfires</span>
+                    <img src="wildfires16.png" class="resize" style="top:0px;left:0px">
+                </a>
+                <a href="#FOUR" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">Café Pacific</span>
+                    <img src="cafe6.PNG" class="resize" style="top:0px;left:0px">
+                </a>
+                <a href="#FIVE" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">thefempages</span>
+                    <img src="fem7.png" class="resize" style="top:0px;left:0px">
+                </a>
+                <a href="#SIX" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">G&F Concrete Cutting</span>
+                    <img src="g2.png" class="resize" style="top:0px;left:0px">
+                </a>
+                <a href="#SEVEN" rel="leanModal" class="chara-pp">
+                    <span class="chara-name">JEM Escape</span>
+                    <img src="j3.png" class="resize" style="top:0px;left:0px">
+                </a>
+            </div>
+        </div>
+        <br><br>
+
+        <div id="content3">
+            <img src="doll.png" id="img2">
+            <br><br><br><br>
+            <p style="font-family:roboto;font-weight:700;color:#6bb05e">Contact</p>
+
+            <p style="font-size: 15px;display:inline-block;width:10%;"><a href="https://www.linkedin.com/in/jasmine-chen-128946129/" style="color:#6bb05e"><img src="sm1.png" style="width:25px;height:25px;"></a>
+            <a href="https://www.facebook.com/jasmine.chen.180" style="color:#6bb05e"><img src="sm2.png" style="width:25px;height:25px;"></a>
+            <a href="https://github.com/hunruh/trino" style="color:#6bb05e"><img src="sm3.png" style="width:25px;height:25px;"></a>
+            </p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;color:#6bb05e">Personal Email:</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">jachen1997@yahoo.com</p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;color:#6bb05e">School Email:</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">jc2535@cornell.edu</p>
+            <br>
+            <p style="font-size: 15px;display:inline-block;width:10%;color:#6bb05e">Phone:</p>
+            <p style="font-size: 15px;display:inline-block;width:10%;">914-602-8032</p>
+        </div>
+
+        <div id="ONE" class="modal">
+            <div id="container" style="background-image: url('trino12.png')">
+                <div id="topbar">
+                    <h1><b>Trino || <a href="http://trinothegame.com/"><u>Website</u></a></b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Project Lead, programmer, and level designer of <i>Trino</i>, a top-down escape the maze game featuring a dinosaur with three different transformations, each with its own powers and weaknesses. The game was made in Java over the course of a semester for Cornell's CS 3152 Introduction to Computer Game Development. The game features over 20+ levels, each with multiple different ways to clear depending on playstyle. <i>Trino</i> won Audience Choice at the 2018 GDIAC Showcase and was selected as a finalist and showcase exhibitor for the 2018 Boston Fig Indie Development Showcase.</p>
+                    <br>
+                    <iframe width="47%" height="150" src="https://www.youtube.com/embed/vbGB2Wb00V0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <img src="trino3.PNG" style="width:50%;padding-left:5%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">    
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('trino1.PNG');">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('trino2.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('trino8.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('trino5.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba"><div class="comb-in0">
+                            <div class="comb-in5" style="background-image: url('trino9.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="TWO" class="modal">
+            <div id="container" style="background-color: #193865; background-image: url('sv1.png')">
+                <div id="topbar">
+                    <h1><b>Silent Voices || <a href="https://www.kickstarter.com/projects/781031427/silent-voices-visual-novel?ref=nav_search&result=project&term=silent%20voices"><u>Kickstarter</u></a></b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Project Lead, programmer and writer of <i>Silent Voices</i>, an independent ongoing visual novel set to release early 2019. <i>Silent Voices</i> features twelve main characters, two warring countries, and many different playable routes. The game is currently being developed in Python, with freelance contributions for art and music assets. <i>Silent Voices</i> features fully interactive GUI, twelve story options, over 300,000 words and an opening video. The game launched a successful Kickstarter campaign and earned over $8000.</p>
+                    <br>
+                    <iframe width="47%" height="150" src="https://www.youtube.com/embed/ve_mAt7_4MI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>></iframe>
+                    <img src="sv10.png" style="width:50%;padding-left:5%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('sv5.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('sv8.png');"></div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('sv6.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('sv9.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba"><div class="comb-in0">
+                            <div class="comb-in5" style="background-image: url('sv4.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="THREE" class="modal">
+            <div id="container" style="background-color:#3d3d3d;background-image:url('wildfires15.png')">
+                <div id="topbar">
+                    <h1><b>California Wildfires</b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Programmer and graphic designer of <i>California Wildfires</i>, an interactive website that displays the different causes and years for the numerous wildfires in California. The project was made in D3 for Cornell’s CS 3300 Data-Driven Webpages. The website allows for sorting by causes, as well as zooming in to individual counties in the state. The project also includes a visualization to offer a direct correlation between the cause of the wildfires and the corresponding years.</p>
+                    <br>
+                    <img src="wildfires11.png" style="width:52%; padding-right: 5%;">
+                    <img src="wildfires12.png" style="width:47%;">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('wildfires1.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('wildfires5.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('wildfires9.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('wildfires4.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in5" style="background-image: url('wildfires10.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="FOUR" class="modal">
+            <div id="container" style="background-color: #7b5254;background-image: url('cafe3.PNG')">
+                <div id="topbar">
+                    <h1><b>Café Pacific</b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Fullstack programmer for <i>Café Pacific’s</i> website, a complete website that displays menu prices, contact information, and translations from English to Japanese. The project was made with HTML, CSS, Javascript, PHP and SQL for Cornell’s CS 2300 Intermediate Web Development. The website was made for a local Japanese restaurant and features different food items as well as online ordering. The website also allowed for admin use, where the owner of the restaurant could add, remove and edit different menu items.</p>
+                    <br>
+                    <img src="cafe9.png" style="width:50%;padding-right:5%">
+                    <img src="cafe10.png" style="width:45%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('cafe1.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('cafe4.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('cafe2.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('cafe7.PNG');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in5" style="background-image: url('cafe8.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="FIVE" class="modal">
+            <div id="container" style="background-color:#382834;background-image: url('fem8.png')">
+                <div id="topbar">
+                    <h1><b>thefempages</b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Fullstack programmer for <i>thefempages</i>, a website to promote women-owned businesses by offering an emailing database and other resources. The project was made with HTML, CSS and Javascript as part of a Web Development summer internship. The page offers two primary functions: to help people find women-owned businesses near them, as well as let them add their information to the emailing listserve so others can find them more easily.</p>
+                    <br>
+                    <img src="fem15.png" style="width:50%;padding-right:5%">
+                    <img src="fem16.png" style="width:45%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('fem10.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('fem14.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('fem12.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('fem11.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in5" style="background-image: url('fem13.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div id="SIX" class="modal">
+            <div id="container" style="background-color: #392015;background-image: url('g3.png')">
+                <div id="topbar">
+                    <h1><b>G&F Concrete Cutting</b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Fullstack programmer for <i>G&F Concrete Cutting’s</i> website, a website to showcase the different projects and awards that the company has. The project was made with HTML, CSS, Javascript and PHP as part of a Web Development and Marketing summer internship. The website features several pages, ranging from projects to awards to an update blog. </p>
+                    <br>
+                    <img src="g9.png" style="width:50%;padding-right:5%">
+                    <img src="g10.png" style="width:45%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('g6.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('g7.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('g8.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in4" style="background-image: url('g5.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in5" style="background-image: url('g4.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="SEVEN" class="modal">
+            <div id="container" style="background-color: #70563c;background-image: url('j1.png')">
+                <div id="topbar">
+                    <h1><b>JEM Escape</b></h1>
+                </div>
+
+                <div id="description">
+                    <p>Programmer and UI/UX designer for <i>JEM Escape</i>, an escape the room game where the exit combination is hidden within three puzzles. The project was made in OCaml for Cornell’s CS 3110 Data Structures and Functional Programming. The game includes three puzzles. One involves mixing the colors and side lengths of different shapes to make the ideal shape. The second includes a ken-ken puzzle. The last one is a logic puzzle that features matching each word to each camel that says it. The UI was made in Photoshop.</p>
+                    <br>
+                    <img src="j9.png" style="width:50%;padding-right:5%">
+                    <img src="j10.png" style="width:45%">
+                </div>
+
+                <div class="combb" id="comb1border">
+                    <div id="comb1wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in1" style="background-image: url('j6.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb2border">
+                    <div id="comb2wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in2" style="background-image: url('j5.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb3border">
+                    <div id="comb3wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in3" style="background-image: url('j7.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb4border">
+                    <div id="comb4wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0"><
+                                div class="comb-in4" style="background-image: url('j4.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combb" id="comb5border">
+                    <div id="comb5wrap">
+                        <div class="comb comba">
+                            <div class="comb-in0">
+                                <div class="comb-in5" style="background-image: url('j8.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $("#content").diamonds({
+                size: 300, 
+                gap: 5,
+                hideIncompleteRow: false,
+                autoRedraw: true,
+                itemSelector: ".chara-pp"
+            });
+
+            $("a[rel*=leanModal]").leanModal({
+                top: 50,
+                overlay: 0.8, 
+                closeButton: ".modal_close"
+            });
+
+                $( '.desc_box' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+                    var e0 = e.originalEvent,
+                        delta = e0.wheelDelta || -e0.detail;
+                    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+                    e.preventDefault();
+                });
+
+            $(document).ready(function() {
+                $("a[rel*=leanModal]").click(function() {
+                    $('html').css('overflow', 'hidden');
+                    $('body').bind('touchmove', function(e) {
+                        e.preventDefault()
+                    });
+                });
+                $('#lean_overlay').click(function() {
+                    $('html').css('overflow-y', 'auto');
+                    $('body').unbind('touchmove');
+                });
+            });
+        </script>
+    </body>
+</html>
